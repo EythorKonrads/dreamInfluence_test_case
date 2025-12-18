@@ -1,0 +1,33 @@
+[
+  {
+    "to": "/",
+    "icon": "/home.svg",
+    "label": "Home"
+  },
+  {
+    "to": "/search",
+    "icon": "/search.svg",
+    "label": "Search"
+  },
+  {
+    "to": "/wallet",
+    "icon": "/wallet.svg",
+    "label": "Wallet"
+  },
+  {
+    "to": "/contacts",
+    "icon": "/file.svg",
+    "label": "Contacts"
+  },
+  {
+    "to": "/my-teams",
+    "icon": "/users.svg",
+    "label": "My teams"
+  },
+  {
+    "to": "/inbox",
+    "icon": "/inbox.svg",
+    "label": "Inbox",
+    "badge": 12
+  }
+]
