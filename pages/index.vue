@@ -1,14 +1,17 @@
 <template>
   <div class="container">
-    <h1>Welcome!</h1>
+    <h1>Good morning</h1>
   </div>
 </template>
 
 <style lang="scss" scoped>
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
 </style>
-<script>
-//use the campaigns from the data variable campaigns
 
+<script>
 export default {
   name: 'IndexPage'
 }
