@@ -2,6 +2,7 @@
   <li class="sidebar-item">
     <nuxt-link
       :to="to"
+      :exact="to === '/'"
       class="sidebar-item__link"
       :title="collapsed ? label : null"
     >
