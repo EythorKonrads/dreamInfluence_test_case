@@ -96,6 +96,9 @@ export default {
     toggleSidebar() {
       if (this.isCollapsed) {
         this.preparingOpen = true
+        if (this.windowWidth <= 768) {
+          this.lockBodyScroll()
+        }
         this.$nextTick(() => {
           setTimeout(() => {
             this.isCollapsed = false
@@ -106,6 +109,19 @@ export default {
       }
 
       this.isCollapsed = true
+      if (this.windowWidth <= 768) {
+        this.unlockBodyScroll()
+      }
+    },
+    lockBodyScroll() {
+      if (process.client) {
+        document.body.style.overflow = 'hidden'
+      }
+    },
+    unlockBodyScroll() {
+      if (process.client) {
+        document.body.style.overflow = ''
+      }
     }
   }
 }
@@ -122,12 +138,31 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  position: relative;
+  transition: width 0.3s ease;
 }
 
 .sidebar--collapsed {
   width: auto;
   min-width: auto;
   padding: 2rem 1rem 1.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar:not(.sidebar--collapsed) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    z-index: 1000;
+  }
+
+  .sidebar--collapsed {
+    width: auto;
+    max-width: none;
+    position: relative;
+  }
 }
 
 .sidebar__header {
@@ -154,20 +189,25 @@ export default {
   flex-shrink: 0;
   position: relative;
   left: 0;
-  transition:
-    left 0.2s ease,
-    transform 0.2s ease;
   z-index: 0;
 }
 
-.sidebar--collapsed .sidebar__avatar {
-  left: 50%;
-  transform: translateX(-50%);
-}
+@media (min-width: 1080px) {
+  .sidebar__avatar {
+    transition:
+      left 0.2s ease,
+      transform 0.2s ease;
+  }
 
-.sidebar--preopening .sidebar__avatar {
-  left: 0;
-  transform: translateX(0);
+  .sidebar--collapsed .sidebar__avatar {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sidebar--preopening .sidebar__avatar {
+    left: 0;
+    transform: translateX(0);
+  }
 }
 
 .sidebar__user-info {
