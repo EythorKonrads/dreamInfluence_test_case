@@ -1,5 +1,5 @@
 <template>
-  <div :class="['default', { 'sidebar-collapsed': sidebarCollapsed }]">
+  <div :class="['default', { 'default--sidebar-collapsed': sidebarCollapsed }]">
     <Sidebar @collapsed="sidebarCollapsed = $event" />
     <main class="default__content">
       <Nuxt />
@@ -33,12 +33,12 @@ export default {
   margin-left: clamp(250px, 20vw, 320px);
 }
 
-.sidebar-collapsed .default__content {
+.default--sidebar-collapsed .default__content {
   margin-left: 80px;
   transition: margin-left 0.25s ease;
 }
 @media (max-width: 768px) {
-  .sidebar-collapsed .default__content {
+  .default--sidebar-collapsed .default__content {
     margin-left: 60px;
   }
 }
