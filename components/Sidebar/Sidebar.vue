@@ -156,8 +156,7 @@ export default {
     width: 100vw;
     max-width: 100vw;
     z-index: 1000;
-    height: 100vh;
-    height: 100dvh;
+    bottom: 0;
   }
 
   .sidebar--collapsed {
