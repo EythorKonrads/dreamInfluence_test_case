@@ -17,10 +17,13 @@ export default {
 .default {
   display: flex;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .default__content {
   flex: 1;
-  padding: 2rem;
+  padding: 2rem 0 2rem 2rem;
+  overflow-x: hidden;
 }
 </style>

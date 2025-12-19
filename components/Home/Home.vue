@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__header">
-      <h1 class="home__hdln">Good morning</h1>
+      <h1 class="home__hdln">{{ greeting }}</h1>
       <div class="home__socials">
         <div class="home__social-item">
           <img
@@ -19,26 +19,72 @@
         </div>
       </div>
     </div>
+    <HomeCampaigns :campaigns="campaigns" />
   </div>
 </template>
 
+<script>
+export default {
+  name: 'Home',
+  props: {
+    campaigns: {
+      type: Array,
+      default: () => []
+    }
+  },
+  computed: {
+    greeting() {
+      const hour = new Date().getHours()
+
+      if (hour < 12) {
+        return 'Good morning'
+      } else if (hour < 18) {
+        return 'Good afternoon'
+      } else {
+        return 'Good evening'
+      }
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
+.home {
+  overflow: hidden;
+}
+
 .home__header {
   display: flex;
   align-items: center;
+  margin-right: 2rem;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
 }
 
 .home__hdln {
   font-size: 2.25rem;
-  font-family: 'Outfit', sans-serif;
+  line-height: 2.75rem;
+  font-family: $font-family-secondary;
   font-weight: 400;
-  line-height: 1;
 }
 
 .home__socials {
   display: flex;
   gap: 1rem;
   margin-left: auto;
+
+  @media (max-width: 900px) {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  @media (max-width: 620px) {
+    flex-wrap: wrap;
+  }
 }
 
 .home__social-item {
@@ -46,16 +92,22 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0 1rem;
-  height: 2.25rem;
-  border: 2px solid #e7e5e4;
+  height: 2.75rem;
+  border: 2px solid $color-border;
   border-radius: 58px;
   font-size: 0.75rem;
   color: $color-text-primary;
   font-weight: 500;
 }
 
+.home__social-icon {
+  width: auto;
+  height: 20px;
+  filter: brightness(0);
+}
+
 .home__status {
-  font-family: 'Inter', sans-serif;
+  font-family: $font-family-primary;
   border-radius: 44px;
   padding: 2px 8px;
 }
@@ -69,14 +121,4 @@
   background-color: $color-status-accepted-bg;
   color: $color-status-accepted;
 }
-
-.home__social-icon {
-  filter: brightness(0);
-}
 </style>
-
-<script>
-export default {
-  name: 'Home'
-}
-</script>

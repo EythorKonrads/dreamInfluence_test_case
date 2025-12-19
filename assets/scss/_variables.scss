@@ -1,13 +1,24 @@
 // Colors
 $color-sidebar-bg: #e7e5e4;
 $color-sidebar-active: #d7d3d0;
+$color-border: #e7e5e4;
 $color-text-primary: #1c1917;
-$color-text-secondary: #78716c;
+$color-text-secondary: #78716b;
+$color-text-tertiary: #9674d6;
 $color-badge-bg: #8e1e33;
 $color-white: #fff;
+$color-white-50: rgba(255, 255, 255, 0.5);
+$color-overlay-gray: rgba(106, 106, 106, 0.6);
+$color-button-hover-bg: #f5f5f5;
+$color-button-hover-border: #999;
+$color-button-disabled-icon: #a9a29d;
 
 // Status colors
 $color-status-rejected-bg: #d92d201f;
 $color-status-rejected: #d92d20;
 $color-status-accepted-bg: #027a481f;
 $color-status-accepted: #027a48;
+
+// Fonts
+$font-family-primary: 'Inter', sans-serif;
+$font-family-secondary: 'Outfit', sans-serif;
