@@ -139,10 +139,11 @@ export default {
   max-width: 320px;
   background-color: $color-sidebar-bg;
   color: $color-text-primary;
-  padding: 2rem 1rem 1.5rem 1rem;
+  padding: 2rem 1rem calc(1.5rem + env(safe-area-inset-bottom)) 1rem;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: calc(100dvh - env(safe-area-inset-bottom));
   position: fixed;
   top: 0;
   align-self: flex-start;
@@ -161,18 +162,23 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: env(safe-area-inset-bottom);
     width: 100vw;
     max-width: 100vw;
+    height: calc(100dvh - env(safe-area-inset-bottom));
+    max-height: calc(100dvh - env(safe-area-inset-bottom));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 1000;
-    padding: 2rem 0.5rem 1.5rem 0.5rem;
+    padding: 2rem 0.5rem calc(1.5rem + env(safe-area-inset-bottom)) 0.5rem;
   }
 
   .sidebar--collapsed {
     width: auto;
     max-width: none;
     position: fixed;
-    padding: 2rem 0.5rem 1.5rem 0.5rem;
+    bottom: env(safe-area-inset-bottom);
+    padding: 2rem 0.5rem calc(1.5rem + env(safe-area-inset-bottom)) 0.5rem;
   }
 }
 
