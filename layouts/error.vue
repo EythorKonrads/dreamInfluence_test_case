@@ -100,7 +100,7 @@ export default {
   background: $color-status-rejected-bg;
   color: $color-status-rejected;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: $font-size-md;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
   letter-spacing: 0.08em;
@@ -109,7 +109,7 @@ export default {
 }
 
 .error-card__title {
-  font-size: 2.4rem;
+  font-size: $font-size-3xl;
   line-height: 1.1;
   margin-bottom: 1rem;
   font-family: $font-family-primary;
@@ -117,7 +117,7 @@ export default {
 }
 
 .error-card__message {
-  font-size: 1.05rem;
+  font-size: $font-size-md;
   color: $color-text-secondary;
   max-width: 620px;
   margin-bottom: 2rem;
@@ -137,7 +137,7 @@ export default {
   padding: 0.9rem 1.2rem;
   border-radius: 10px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: $font-size-md;
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
@@ -180,11 +180,11 @@ export default {
   }
 
   .error-card__title {
-    font-size: 2rem;
+    font-size: $font-size-2xl;
   }
 
   .error-card__message {
-    font-size: 1rem;
+    font-size: $font-size-md;
   }
 }
 
@@ -203,7 +203,7 @@ export default {
   }
 
   .error-card__title {
-    font-size: 1.65rem;
+    font-size: $font-size-xl;
   }
 }
 </style>

@@ -131,7 +131,7 @@ export default {
 }
 
 .campaigns-item__length {
-  font-size: 0.75rem;
+  font-size: $font-size-sm;
   font-weight: 500;
   line-height: 1rem;
   color: $color-text-tertiary;
@@ -139,7 +139,7 @@ export default {
 }
 
 .campaigns-item__title {
-  font-size: 1.125rem;
+  font-size: $font-size-lg;
   font-weight: 500;
   line-height: 1.75rem;
   margin: 0;
@@ -150,7 +150,7 @@ export default {
 }
 
 .campaigns-item__description {
-  font-size: 0.875rem;
+  font-size: $font-size-base;
   line-height: 1.25rem;
   color: $color-text-secondary;
   margin: 0;
@@ -188,7 +188,7 @@ export default {
 }
 
 .campaigns-item__cover-error-text {
-  font-size: 0.875rem;
+  font-size: $font-size-base;
   font-weight: 500;
   color: $color-text-secondary;
   margin: 0;
@@ -236,7 +236,7 @@ export default {
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  background: rgba(120, 120, 120, 0.6);
+  background: $color-overlay;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 52px;
@@ -290,7 +290,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.5rem;
+  font-size: $font-size-xxs;
   font-weight: 500;
   color: $color-text-secondary;
   text-transform: uppercase;
@@ -309,7 +309,7 @@ export default {
 }
 
 .campaigns-item__footer-title {
-  font-size: 1rem;
+  font-size: $font-size-md;
   font-weight: 600;
   line-height: 1.5rem;
   width: 100%;
@@ -321,7 +321,7 @@ export default {
 }
 
 .campaigns-item__hashtags {
-  font-size: 0.75rem;
+  font-size: $font-size-sm;
   font-weight: 500;
   line-height: 1rem;
   color: $color-white;
@@ -336,7 +336,7 @@ export default {
   border-radius: 12px;
   padding: 8px 14px;
   font-family: $font-family-primary;
-  font-size: 0.75rem;
+  font-size: $font-size-sm;
   font-weight: 500;
   cursor: pointer;
 }

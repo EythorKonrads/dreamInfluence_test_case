@@ -74,7 +74,7 @@ export default {
 }
 
 .index__hdln {
-  font-size: 2.25rem;
+  font-size: $font-size-3xl;
   line-height: 2.75rem;
   font-family: $font-family-secondary;
   font-weight: 400;
@@ -103,7 +103,7 @@ export default {
   height: 2.75rem;
   border: 2px solid $color-border;
   border-radius: 58px;
-  font-size: 0.75rem;
+  font-size: $font-size-sm;
   color: $color-text-primary;
   font-weight: 500;
 }

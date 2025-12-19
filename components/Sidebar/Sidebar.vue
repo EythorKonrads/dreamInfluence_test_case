@@ -244,13 +244,13 @@ export default {
 }
 
 .sidebar__user-name {
-  font-size: 0.875rem;
+  font-size: $font-size-base;
   font-weight: 500;
   color: $color-text-primary;
 }
 
 .sidebar__user-email {
-  font-size: 0.75rem;
+  font-size: $font-size-sm;
   color: $color-text-secondary;
   overflow: hidden;
   text-overflow: ellipsis;

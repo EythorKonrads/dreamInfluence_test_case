@@ -69,7 +69,7 @@ export default {
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   color: $color-text-primary;
-  font-size: 1rem;
+  font-size: $font-size-md;
   text-decoration: none;
   border-radius: 12px;
   transition:
@@ -122,7 +122,7 @@ export default {
   color: $color-white;
   padding: 0.125rem 0.5rem;
   border-radius: 12px;
-  font-size: 0.75rem;
+  font-size: $font-size-sm;
   font-weight: 500;
   transition: opacity 0.3s ease;
 }
@@ -141,7 +141,7 @@ export default {
   right: -12px;
   padding: 0.125rem 0.375rem;
   border-radius: 999px;
-  font-size: 0.625rem;
+  font-size: $font-size-xs;
   line-height: 1;
 }
 </style>

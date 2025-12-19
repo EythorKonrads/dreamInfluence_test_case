@@ -254,7 +254,7 @@ export default {
   }
 
   span {
-    font-size: 24px;
+    font-size: $font-size-xl;
     line-height: 1;
     user-select: none;
   }
