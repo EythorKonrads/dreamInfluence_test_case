@@ -7,7 +7,7 @@ export default {
   name: 'IndexPage',
   async asyncData({ $axios }) {
     try {
-      const campaigns = await $axios.$get('/api/')
+      const campaigns = await $axios.$get('/')
       return { campaigns }
     } catch (error) {
       console.error('Error fetching campaigns:', error)
