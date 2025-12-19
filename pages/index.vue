@@ -110,7 +110,7 @@ export default {
 
 .index__social-icon {
   width: auto;
-  height: 20px;
+  height: 1.25rem;
   filter: brightness(0);
 }
 
