@@ -39,9 +39,15 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/proxy'],
   axios: {
-    baseURL: 'https://technical-case.dreaminfluencers.com'
+    proxy: true
+  },
+  proxy: {
+    '/api/': {
+      target: 'https://technical-case.dreaminfluencers.com',
+      pathRewrite: { '^/api/': '/' }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
