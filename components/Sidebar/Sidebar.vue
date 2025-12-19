@@ -57,8 +57,17 @@ export default {
       navigationItems,
       user,
       isCollapsed: false,
-      preparingOpen: false
+      preparingOpen: false,
+      windowWidth: 0
     }
+  },
+  mounted() {
+    this.windowWidth = window.innerWidth
+    this.checkViewportAndCollapse()
+    window.addEventListener('resize', this.onWindowResize, { passive: true })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onWindowResize)
   },
   computed: {
     collapseTitle() {
@@ -69,6 +78,21 @@ export default {
     }
   },
   methods: {
+    onWindowResize() {
+      this.windowWidth = window.innerWidth
+      this.checkViewportAndCollapse()
+    },
+    checkViewportAndCollapse() {
+      if (this.windowWidth < 1080) {
+        this.isCollapsed = true
+      } else if (
+        this.windowWidth >= 1080 &&
+        this.isCollapsed &&
+        !this.preparingOpen
+      ) {
+        this.isCollapsed = false
+      }
+    },
     toggleSidebar() {
       if (this.isCollapsed) {
         this.preparingOpen = true
@@ -91,6 +115,7 @@ export default {
 .sidebar {
   width: 20vw;
   min-width: 250px;
+  max-width: 320px;
   background-color: $color-sidebar-bg;
   color: $color-text-primary;
   padding: 2rem 1rem 1.5rem 1rem;
