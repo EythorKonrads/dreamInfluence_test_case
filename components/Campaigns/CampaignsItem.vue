@@ -1,15 +1,15 @@
 <template>
-  <li class="home-campaigns-item">
-    <p class="home-campaigns-item__length">
+  <li class="campaigns-item">
+    <p class="campaigns-item__length">
       {{ placeholderCampaignLength[index] || 1 }} Days left
     </p>
-    <h3 class="home-campaigns-item__title">{{ campaign.title }}</h3>
-    <p class="home-campaigns-item__description">
+    <h3 class="campaigns-item__title">{{ campaign.title }}</h3>
+    <p class="campaigns-item__description">
       {{ campaign.description }}
     </p>
     <div
-      class="home-campaigns-item__cover"
-      :class="{ 'home-campaigns-item__cover--failed': coverImageFailed }"
+      class="campaigns-item__cover"
+      :class="{ 'campaigns-item__cover--failed': coverImageFailed }"
       :style="{
         backgroundImage: !coverImageFailed
           ? `url(${campaign.coverURL})`
@@ -17,53 +17,51 @@
       }"
       @error="onCoverImageError"
     >
-      <div v-if="coverImageFailed" class="home-campaigns-item__cover-error">
-        <p class="home-campaigns-item__cover-error-text">
-          Could not fetch image
-        </p>
+      <div v-if="coverImageFailed" class="campaigns-item__cover-error">
+        <p class="campaigns-item__cover-error-text">Could not fetch image</p>
       </div>
-      <div class="home-campaigns-item__frosted-blur"></div>
-      <div class="home-campaigns-item__header"></div>
-      <div class="home-campaigns-item__social-icons">
+      <div class="campaigns-item__frosted-blur"></div>
+      <div class="campaigns-item__header"></div>
+      <div class="campaigns-item__social-icons">
         <a
           href="https://www.tiktok.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="home-campaigns-item__social-icon"
+          class="campaigns-item__social-icon"
           aria-label="TikTok"
         >
           <img src="/tiktok.svg" alt="TikTok" />
         </a>
-        <div class="home-campaigns-item__social-divider"></div>
+        <div class="campaigns-item__social-divider"></div>
         <a
           href="https://www.instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="home-campaigns-item__social-icon"
+          class="campaigns-item__social-icon"
           aria-label="Instagram"
         >
           <img src="/instagram.svg" alt="Instagram" />
         </a>
       </div>
-      <div class="home-campaigns-item__footer">
+      <div class="campaigns-item__footer">
         <img
           v-if="!logoImageFailed"
           :src="campaign.logoURL"
           :alt="campaign.title"
-          class="home-campaigns-item__logo"
+          class="campaigns-item__logo"
           @error="onLogoImageError"
         />
         <div
           v-else
-          class="home-campaigns-item__logo home-campaigns-item__logo--fallback"
+          class="campaigns-item__logo campaigns-item__logo--fallback"
         ></div>
-        <div class="home-campaigns-item__footer-text">
-          <p class="home-campaigns-item__footer-title">{{ campaign.title }}</p>
-          <p class="home-campaigns-item__hashtags">
+        <div class="campaigns-item__footer-text">
+          <p class="campaigns-item__footer-title">{{ campaign.title }}</p>
+          <p class="campaigns-item__hashtags">
             {{ placeholderHashtags[index] || '#general' }}
           </p>
         </div>
-        <button class="home-campaigns-item__btn">View</button>
+        <button class="campaigns-item__btn">View</button>
       </div>
     </div>
   </li>
@@ -71,7 +69,7 @@
 
 <script>
 export default {
-  name: 'HomeCampaignsItem',
+  name: 'CampaignsItem',
   props: {
     campaign: {
       type: Object,
@@ -113,7 +111,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-campaigns-item {
+.campaigns-item {
   min-width: 340px;
   max-width: 340px;
   flex-shrink: 0;
@@ -132,7 +130,7 @@ export default {
   }
 }
 
-.home-campaigns-item__length {
+.campaigns-item__length {
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1rem;
@@ -140,7 +138,7 @@ export default {
   text-transform: uppercase;
 }
 
-.home-campaigns-item__title {
+.campaigns-item__title {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.75rem;
@@ -151,7 +149,7 @@ export default {
   white-space: nowrap;
 }
 
-.home-campaigns-item__description {
+.campaigns-item__description {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: $color-text-secondary;
@@ -161,7 +159,7 @@ export default {
   white-space: nowrap;
 }
 
-.home-campaigns-item__cover {
+.campaigns-item__cover {
   width: 100%;
   height: 220px;
   margin-top: 12px;
@@ -175,11 +173,11 @@ export default {
   overflow: hidden;
 }
 
-.home-campaigns-item__cover--failed {
+.campaigns-item__cover--failed {
   background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
 }
 
-.home-campaigns-item__cover-error {
+.campaigns-item__cover-error {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -189,14 +187,14 @@ export default {
   position: relative;
 }
 
-.home-campaigns-item__cover-error-text {
+.campaigns-item__cover-error-text {
   font-size: 0.875rem;
   font-weight: 500;
   color: $color-text-secondary;
   margin: 0;
 }
 
-.home-campaigns-item__frosted-blur {
+.campaigns-item__frosted-blur {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -222,7 +220,7 @@ export default {
   );
 }
 
-.home-campaigns-item__header {
+.campaigns-item__header {
   position: absolute;
   top: 0;
   left: 0;
@@ -230,7 +228,7 @@ export default {
   bottom: 0;
 }
 
-.home-campaigns-item__social-icons {
+.campaigns-item__social-icons {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -245,7 +243,7 @@ export default {
   z-index: 2;
 }
 
-.home-campaigns-item__social-icon {
+.campaigns-item__social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -261,13 +259,13 @@ export default {
   }
 }
 
-.home-campaigns-item__social-divider {
+.campaigns-item__social-divider {
   width: 1px;
   height: 16px;
   background-color: $color-white-50;
 }
 
-.home-campaigns-item__footer {
+.campaigns-item__footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -280,14 +278,14 @@ export default {
   z-index: 1;
 }
 
-.home-campaigns-item__logo {
+.campaigns-item__logo {
   width: 40px;
   height: 40px;
   object-fit: contain;
   border-radius: 12px;
 }
 
-.home-campaigns-item__logo--fallback {
+.campaigns-item__logo--fallback {
   background: $color-border;
   display: flex;
   align-items: center;
@@ -298,11 +296,11 @@ export default {
   text-transform: uppercase;
 }
 
-.home-campaigns-item__logo--fallback::before {
+.campaigns-item__logo--fallback::before {
   content: 'Failed!';
 }
 
-.home-campaigns-item__footer-text {
+.campaigns-item__footer-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -310,7 +308,7 @@ export default {
   min-width: 0;
 }
 
-.home-campaigns-item__footer-title {
+.campaigns-item__footer-title {
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.5rem;
@@ -322,14 +320,14 @@ export default {
   white-space: nowrap;
 }
 
-.home-campaigns-item__hashtags {
+.campaigns-item__hashtags {
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1rem;
   color: $color-white;
 }
 
-.home-campaigns-item__btn {
+.campaigns-item__btn {
   background-color: $color-white-50;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);

@@ -1,17 +1,17 @@
 <template>
-  <div class="home-campaigns">
-    <div class="home-campaigns__header">
-      <h2 class="home-campaigns__heading">Your campaigns</h2>
-      <div class="home-campaigns__actions">
+  <div class="campaigns">
+    <div class="campaigns__header">
+      <h2 class="campaigns__heading">Your campaigns</h2>
+      <div class="campaigns__actions">
         <button
-          class="home-campaigns__action-btn"
+          class="campaigns__action-btn"
           :disabled="!canScrollLeft"
           @click="handleLeft"
         >
           <img src="/chevron-left.svg" alt="Previous" />
         </button>
         <button
-          class="home-campaigns__action-btn"
+          class="campaigns__action-btn"
           :disabled="!canScrollRight"
           @click="handleRight"
         >
@@ -19,10 +19,10 @@
         </button>
       </div>
     </div>
-    <div class="home-campaigns__container">
+    <div class="campaigns__container">
       <ul
         ref="listContainer"
-        class="home-campaigns__list"
+        class="campaigns__list"
         @scroll="updateScrollButtons"
         @mousedown="startDrag"
         @mousemove="drag"
@@ -32,7 +32,7 @@
         @touchmove="drag"
         @touchend="endDrag"
       >
-        <HomeCampaignsItem
+        <CampaignsItem
           v-for="(campaign, index) in campaigns"
           :key="campaign.uid + '-' + index"
           :campaign="campaign"
@@ -44,12 +44,12 @@
 </template>
 
 <script>
-import HomeCampaignsItem from './HomeCampaignsItem.vue'
+import CampaignsItem from './CampaignsItem.vue'
 
 export default {
-  name: 'HomeCampaigns',
+  name: 'Campaigns',
   components: {
-    HomeCampaignsItem
+    CampaignsItem
   },
   props: {
     campaigns: {
@@ -195,7 +195,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-campaigns {
+.campaigns {
   margin-top: 40px;
 
   @media (max-width: 640px) {
@@ -203,25 +203,25 @@ export default {
   }
 }
 
-.home-campaigns__header {
+.campaigns__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: 2rem;
 }
 
-.home-campaigns__heading {
+.campaigns__heading {
   font-family: $font-family-secondary;
   font-weight: 400;
   line-height: 32px;
 }
 
-.home-campaigns__actions {
+.campaigns__actions {
   display: flex;
   gap: 12px;
 }
 
-.home-campaigns__action-btn {
+.campaigns__action-btn {
   width: 32px;
   height: 32px;
   border-radius: 12px;
@@ -260,12 +260,12 @@ export default {
   }
 }
 
-.home-campaigns__container {
+.campaigns__container {
   margin-top: 24px;
   overflow: hidden;
 }
 
-.home-campaigns__list {
+.campaigns__list {
   display: flex;
   gap: 24px;
   list-style: none;
