@@ -123,6 +123,11 @@ export default {
         document.body.style.overflow = ''
       }
     }
+  },
+  watch: {
+    isCollapsed(val) {
+      this.$emit('collapsed', val)
+    }
   }
 }
 </script>
@@ -137,8 +142,10 @@ export default {
   padding: 2rem 1rem 1.5rem 1rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  position: relative;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  align-self: flex-start;
   transition: width 0.3s ease;
 }
 
@@ -153,17 +160,18 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100vw;
     max-width: 100vw;
     z-index: 1000;
-    bottom: 0;
     padding: 2rem 0.5rem 1.5rem 0.5rem;
   }
 
   .sidebar--collapsed {
     width: auto;
     max-width: none;
-    position: relative;
+    position: fixed;
     padding: 2rem 0.5rem 1.5rem 0.5rem;
   }
 }
