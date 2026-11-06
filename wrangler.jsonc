@@ -1,0 +1,16 @@
+{
+  "name": "dreaminfluence",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-01",
+  // The site only lives on its own domain; PR previews get their own URLs
+  "workers_dev": false,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "dreaminfluence.eythorkonrads.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    // Only the API proxy runs the Worker
+    "run_worker_first": ["/api/*"]
+  }
+}
